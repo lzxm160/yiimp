@@ -309,11 +309,11 @@ bool client_update_block(YAAMP_CLIENT *client, json_value *json_params)
 	if(!coind) return false;
 
 	const char* hash = json_params->u.array.values[2]->u.string.ptr;
-
+	debuglog("client.cpp 312");
 	if (g_debuglog_client) {
 		debuglog("notify: new %s block %s\n", coind->symbol, hash);
 	}
-
+// client mining.update_block 1 null
 	snprintf(coind->lastnotifyhash, 161, "%s", hash);
 
 	coind->newblock = true;
