@@ -5,6 +5,7 @@ YAAMP_OBJECT *object_find(CommonList *list, int id, bool lock)
 {
 	debuglog("object_find\n");
 	if(lock) list->Enter();
+	debuglog("list count:%d\n",list->count);
 	for(CLI li = list->first; li; li = li->next)
 	{
 		YAAMP_OBJECT *object = (YAAMP_OBJECT *)li->data;
