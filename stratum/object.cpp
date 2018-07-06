@@ -7,6 +7,7 @@ YAAMP_OBJECT *object_find(CommonList *list, int id, bool lock)
 	for(CLI li = list->first; li; li = li->next)
 	{
 		YAAMP_OBJECT *object = (YAAMP_OBJECT *)li->data;
+		debuglog("object->id:%d,id:%d\n",object->id,id);
 		if(object->id == id)
 		{
 			if(lock)
