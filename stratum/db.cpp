@@ -233,12 +233,12 @@ void db_update_coinds(YAAMP_DB *db)
 				continue;
 			}
 		}
-
+		debuglog(":: %s:%d\n", __FILE__,__LINE__);
 		if(row[7]) strcpy(coind->wallet, row[7]);
 		if(row[6]) strcpy(coind->rpcencoding, row[6]);
 		if(row[6]) coind->pos = strcasecmp(row[6], "POS")? false: true;
 		if(row[10]) coind->hassubmitblock = atoi(row[10]);
-
+debuglog(":: %s:%d\n", __FILE__,__LINE__);
 		coind->rpc.ssl = 0;
 		// deprecated method to set ssl and cert (before db specific fields)
 		if(row[2]) {
@@ -261,7 +261,7 @@ void db_update_coinds(YAAMP_DB *db)
 			strcpy(coind->rpc.cert, "");
 			strcpy(coind->rpc.host, buffer);
 		}
-
+debuglog(":: %s:%d\n", __FILE__,__LINE__);
 		if(row[3]) coind->rpc.port = atoi(row[3]);
 
 		if(row[4] && row[5])
@@ -272,7 +272,7 @@ void db_update_coinds(YAAMP_DB *db)
 			base64_encode(coind->rpc.credential, buffer);
 			coind->rpc.coind = coind;
 		}
-
+debuglog(":: %s:%d\n", __FILE__,__LINE__);
 		if(row[8]) coind->reward = atof(row[8]);
 		if(row[9]) coind->price = atof(row[9]);
 		if(row[11]) coind->txmessage = atoi(row[11]);
@@ -309,7 +309,7 @@ void db_update_coinds(YAAMP_DB *db)
 		if(row[35]) coind->usesegwit = atoi(row[35]) > 0;
 
 		if(coind->usesegwit) g_stratum_segwit = true;
-
+debuglog(":: %s:%d\n", __FILE__,__LINE__);
 		// force the right rpcencoding for DCR
 		if(!strcmp(coind->symbol, "DCR") && strcmp(coind->rpcencoding, "DCR"))
 			strcpy(coind->rpcencoding, "DCR");
@@ -331,7 +331,7 @@ void db_update_coinds(YAAMP_DB *db)
 			if (strcmp(coind->symbol, "VSX") == 0) coind->oldmasternodes = true;
 			if (strcmp(coind->symbol, "XLR") == 0) coind->oldmasternodes = true;
 		}
-
+debuglog(":: %s:%d\n", __FILE__,__LINE__);
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		//coind->touch = true;
