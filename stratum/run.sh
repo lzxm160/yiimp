@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# INSERT INTO `yaamp`.`coins` (`id`, `name`, `symbol`, `algo`, `rpcuser`, `rpcpasswd`, `rpchost`, `rpcport`) VALUES (1957, 'xvgblake2s', 'XVG',  'blake2s', 'rpc','rpc123','127.0.0.1', '8349');
+
+#
 ulimit -n 10240
 ulimit -u 10240
 
