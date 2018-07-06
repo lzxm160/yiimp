@@ -9,6 +9,7 @@
 #找钱包
 # 配置钱包
 # blocknotify=/opt/xvg/yiimp/stratum/blocknotify 127.0.0.1:5766 1957 %s
+# ./blocknotify 172.16.2.12:5766 1957 65b4e101cacf3e1e4f3a9237e3a74ffd1186e595d8b78fa8ea22c21ef5bf9347
 ulimit -n 10240
 ulimit -u 10240
 algo="blake2s"

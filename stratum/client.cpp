@@ -290,6 +290,7 @@ bool client_authorize(YAAMP_CLIENT *client, json_value *json_params)
 
 bool client_update_block(YAAMP_CLIENT *client, json_value *json_params)
 {
+	debuglog("client_update_block\n");
 	// password, id, block hash
 	if(json_params->u.array.length < 3 || !json_params->u.array.values[0]->u.string.ptr)
 	{
