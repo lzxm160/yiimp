@@ -3,6 +3,7 @@
 
 YAAMP_OBJECT *object_find(CommonList *list, int id, bool lock)
 {
+	debuglog("object_find\n");
 	if(lock) list->Enter();
 	for(CLI li = list->first; li; li = li->next)
 	{
