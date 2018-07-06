@@ -214,12 +214,15 @@ void db_update_coinds(YAAMP_DB *db)
 			coind->newblock = true;
 			coind->id = atoi(row[0]);
 			coind->aux.coind = coind;
+			debuglog("coind->id: %d\n", coind->id);
 		}
 		else
 			coind->newcoind = false;
 
 		strcpy(coind->name, row[1]);
 		strcpy(coind->symbol, row[20]);
+		debuglog("coind->name: %s\n", coind->name);
+		debuglog("coind->symbol: %s\n", coind->symbol);
 		// optional coin filters
 		if(coind->newcoind) {
 			bool ignore = false;
@@ -332,6 +335,7 @@ void db_update_coinds(YAAMP_DB *db)
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		//coind->touch = true;
+		debuglog("before coind->newcoind\n");
 		if(coind->newcoind)
 		{
 			debuglog("connecting to coind %s\n", coind->symbol);
@@ -343,8 +347,9 @@ void db_update_coinds(YAAMP_DB *db)
 				continue;
 			}
 			coind_init(coind);
-
+			debuglog("before g_list_coind.AddTail\n");
 			g_list_coind.AddTail(coind);
+			debuglog("after g_list_coind.AddTail\n");
 			usleep(100*YAAMP_MS);
 		}
 		coind->touch = true;
