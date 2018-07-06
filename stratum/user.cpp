@@ -78,7 +78,7 @@ void db_add_user(YAAMP_DB *db, YAAMP_CLIENT *client)
 		}
 	}
 
-	// debuglog("user %s %s gives %d %\n", client->username, symbol, gift);
+	debuglog("user %s %s gives %d %\n", client->username, symbol, gift);
 	db_query(db, "SELECT id, is_locked, logtraffic, coinid, donation FROM accounts WHERE username='%s'", client->username);
 
 	MYSQL_RES *result = mysql_store_result(&db->mysql);
