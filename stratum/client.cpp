@@ -290,7 +290,6 @@ bool client_authorize(YAAMP_CLIENT *client, json_value *json_params)
 
 bool client_update_block(YAAMP_CLIENT *client, json_value *json_params)
 {
-	debuglog("client_update_block\n");
 	// password, id, block hash
 	if(json_params->u.array.length < 3 || !json_params->u.array.values[0]->u.string.ptr)
 	{
@@ -303,8 +302,9 @@ bool client_update_block(YAAMP_CLIENT *client, json_value *json_params)
 		clientlog(client, "update block, bad password");
 		return false;
 	}
-
+	debuglog("client_update_block\n");
 	int coinid = json_params->u.array.values[1]->u.integer;
+	debuglog("coinid %d\n",coinid);
 	if(!coinid) return false;
 	YAAMP_COIND *coind = (YAAMP_COIND *)object_find(&g_list_coind, coinid, true);
 	if(!coind) return false;
