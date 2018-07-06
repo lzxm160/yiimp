@@ -49,8 +49,8 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
-	// struct hostent *ent = gethostbyname(argv[1]);
-	struct hostent *ent = gethostbyaddr(argv[1], INET_ADDRSTRLEN, AF_INET);
+	struct hostent *ent = gethostbyname(argv[1]);
+	// struct hostent *ent = gethostbyaddr(argv[1], INET_ADDRSTRLEN, AF_INET);
 	if(!ent)
 	{
 		printf("error gethostbyname %s id %s\n", argv[1], argv[2]);
