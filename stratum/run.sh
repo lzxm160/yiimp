@@ -5,11 +5,11 @@
 #
 ulimit -n 10240
 ulimit -u 10240
-
+algo="blake2s"
 # cd /var/stratum
-while [ -e config/${1}.conf ]; do
-	gzip -f config/${1}.log
-        ./stratum config/$1
+while [ -e config/${algo}.conf ]; do
+	gzip -f config/${algo}.log
+        ./stratum config/${algo}
 	sleep 1
 done
 exec bash
