@@ -148,7 +148,7 @@ bool client_validate_user_address(YAAMP_CLIENT *client)
 	if (!client->coinid) {
 		for(CLI li = g_list_coind.first; li; li = li->next) {
 			YAAMP_COIND *coind = (YAAMP_COIND *)li->data;
-			// debuglog("user %s testing on coin %s ...\n", client->username, coind->symbol);
+			debuglog("user %s testing on coin %s ...\n", client->username, coind->symbol);
 			if(!coind_can_mine(coind)) continue;
 			if(strlen(g_current_algo->name) && strcmp(g_current_algo->name, coind->algo)) continue;
 			if(coind_validate_user_address(coind, client->username)) {
