@@ -73,9 +73,14 @@ bool coind_submitblocktemplate(YAAMP_COIND *coind, const char *block)
 	char *params = (char *)malloc(paramlen+1024);
 	if(!params) return false;
 
-	sprintf(params, "[{\"mode\": \"submit\", \"data\": \"%s\"}]", block);
-	json_value *json = rpc_call(&coind->rpc, "getblocktemplate", params);
+	// sprintf(params, "[{\"mode\": \"submit\", \"data\": \"%s\"}]", block);
 
+	// json_value *json = rpc_call(&coind->rpc, "getblocktemplate", params);
+
+	sprintf(params, "[\"%s\"]", block);
+	
+	json_value *json = rpc_call(&coind->rpc, "submitblock", params);
+	
 	free(params);
 	if(!json) return false;
 
