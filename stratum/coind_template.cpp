@@ -364,19 +364,19 @@ YAAMP_JOB_TEMPLATE *coind_create_template(YAAMP_COIND *coind)
 		sprintf(templ->version, "%08x", nVersion);
 	}
 
-//	debuglog("%s ntime %s\n", coind->symbol, templ->ntime);
-//	uint64_t target = decode_compact(json_get_string(json_result, "bits"));
-//	coind->difficulty = target_to_diff(target);
+	debuglog("%s ntime %s\n", coind->symbol, templ->ntime);
+	uint64_t target = decode_compact(json_get_string(json_result, "bits"));
+	coind->difficulty = target_to_diff(target);
 
-//	string_lower(templ->ntime);
-//	string_lower(templ->nbits);
+	// string_lower(templ->ntime);
+	// string_lower(templ->nbits);
 
-//	char target[1024];
-//	strcpy(target, json_get_string(json_result, "target"));
-//	uint64_t coin_target = decode_compact(templ->nbits);
-//	debuglog("nbits %s\n", templ->nbits);
-//	debuglog("target %s\n", target);
-//	debuglog("0000%016llx\n", coin_target);
+	// char target[1024];
+	// strcpy(target, json_get_string(json_result, "target"));
+	// uint64_t coin_target = decode_compact(templ->nbits);
+	// debuglog("nbits %s\n", templ->nbits);
+	// debuglog("target %s\n", target);
+	// debuglog("0000%016llx\n", coin_target);
 
 	if(coind->isaux)
 	{
