@@ -338,7 +338,7 @@ void job_update()
 //		ready++;
 	}
 
-//	debuglog("job_update %d / %d jobs\n", ready, g_list_job.count);
+	debuglog("job_update %d / %d jobs\n", ready, g_list_job.count);
 	g_list_job.Leave();
 
 }
