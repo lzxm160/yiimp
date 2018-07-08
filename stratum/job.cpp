@@ -326,7 +326,7 @@ void job_update()
 //	usleep(100*YAAMP_MS);
 
 //	int ready = 0;
-//	debuglog("job_update\n");
+	debuglog("before g_list_job\n");
 
 	g_list_job.Enter();
 	for(CLI li = g_list_job.first; li; li = li->next)
