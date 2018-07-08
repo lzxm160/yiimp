@@ -106,6 +106,8 @@ static bool job_assign_client(YAAMP_JOB *job, YAAMP_CLIENT *client, double maxha
 	job->count++;
 
 	debuglog("%s:%d assign %x, %f, %d, %s\n", job->id, client->speed, client->reconnecting, client->sock->ip);
+	socket_send(client->sock, "{\"id\":null,\"method\":\"mining.set_extranonce\",\"params\":[\"%s\",%d]}\n",
+				client->extranonce1, client->extranonce2size);
 	if(strcmp(client->extranonce1, client->extranonce1_last) || client->extranonce2size != client->extranonce2size_last)
 	{
 		debuglog("new nonce %x %s %s\n", job->id, client->extranonce1_last, client->extranonce1);
