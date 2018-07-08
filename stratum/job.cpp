@@ -331,6 +331,7 @@ void job_update()
 	g_list_job.Enter();
 	for(CLI li = g_list_job.first; li; li = li->next)
 	{
+		debuglog("for \n");
 		YAAMP_JOB *job = (YAAMP_JOB *)li->data;
 		if(!job_can_mine(job)) continue;
 debuglog("before job_broadcast\n");
