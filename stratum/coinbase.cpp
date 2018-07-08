@@ -100,8 +100,10 @@ void coinbase_create(YAAMP_COIND *coind, YAAMP_JOB_TEMPLATE *templ, json_value *
 	char script2[32] = "7969696d7000"; // "yiimp\0" in hex ascii
 
 	if(!coind->pos && !coind->isaux && templ->auxs_size)
+	{
+		debuglog("==========%s:%d,before coinbase_aux\n",__FILE__,__LINE__);
 		coinbase_aux(templ, script2);
-
+	}
 	int script_len = strlen(script1)/2 + strlen(script2)/2 + 8;
 	sprintf(templ->coinb1, "%s%s01"
 		"0000000000000000000000000000000000000000000000000000000000000000"
