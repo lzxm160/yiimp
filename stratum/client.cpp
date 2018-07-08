@@ -306,12 +306,12 @@ bool client_update_block(YAAMP_CLIENT *client, json_value *json_params)
 	int coinid = json_params->u.array.values[1]->u.integer;
 	debuglog("coinid %d\n",coinid);
 	if(!coinid) return false;
-	debuglog("client_update_block\n");
+	debuglog("==================client_update_block\n");
 	YAAMP_COIND *coind = (YAAMP_COIND *)object_find(&g_list_coind, coinid, true);
 	if(!coind) return false;
 	
 	const char* hash = json_params->u.array.values[2]->u.string.ptr;
-	debuglog("hash %s\n",hash);
+	debuglog("==================hash %s\n",hash);
 	if (g_debuglog_client) {
 		debuglog("notify: new %s block %s\n", coind->symbol, hash);
 	}

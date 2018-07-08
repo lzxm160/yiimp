@@ -77,7 +77,7 @@ int main(int argc, char **argv)
 	send(sock, buffer, strlen(buffer), 0);
 	close(sock);
 
-	//fprintf(stdout, "notify %s\n", buffer);
+	fprintf(stdout, "notify %s\n", buffer);
 
 	return 0;
 }
