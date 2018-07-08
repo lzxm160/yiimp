@@ -493,7 +493,11 @@ YAAMP_JOB_TEMPLATE *coind_create_template(YAAMP_COIND *coind)
 		ser_string_be2(templ->claim_hex, templ->claim_be, 8);
 
 	if(!coind->pos)
+	{
+		debuglog("==========%s:%d,before coind_aux_build_auxs\n",__FILE__,__LINE__);
 		coind_aux_build_auxs(templ);
+	}
+		
 
 	coinbase_create(coind, templ, json_result);
 	json_value_free(json);
