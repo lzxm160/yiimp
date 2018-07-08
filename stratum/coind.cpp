@@ -76,7 +76,7 @@ bool coind_can_mine(YAAMP_COIND *coind, bool isaux)
 	if(!rpc_connected(&coind->rpc)) return false;
 	debuglog("%s:%d\n",__FILE__,__LINE__);
 	if((!coind->height)&&(coind->height!=0)) return false;
-	debuglog("%s:%d\n",__FILE__,__LINE__);
+	debuglog("%s:%d,diff:%f\n",__FILE__,__LINE__,coind->difficulty);
 	if(!coind->difficulty) return false;
 	debuglog("%s:%d\n",__FILE__,__LINE__);
 	if(coind->isaux != isaux) return false;
