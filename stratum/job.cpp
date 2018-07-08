@@ -105,7 +105,7 @@ static bool job_assign_client(YAAMP_JOB *job, YAAMP_CLIENT *client, double maxha
 	job->speed += client->speed;
 	job->count++;
 
-	debuglog(" assign %x, %f, %d, %s\n", job->id, client->speed, client->reconnecting, client->sock->ip);
+	debuglog("%s:%d assign %x, %f, %d, %s\n", job->id, client->speed, client->reconnecting, client->sock->ip);
 	if(strcmp(client->extranonce1, client->extranonce1_last) || client->extranonce2size != client->extranonce2size_last)
 	{
 		debuglog("new nonce %x %s %s\n", job->id, client->extranonce1_last, client->extranonce1);

@@ -189,7 +189,7 @@ json_value *socket_nextjson(YAAMP_SOCKET *s, YAAMP_CLIENT *client)
 
 int socket_send_raw(YAAMP_SOCKET *s, const char *buffer, int size)
 {
-	if (g_debuglog_socket) {
+	if (g_debuglog_rpc) {
 		debuglog("socket send: %s", buffer);
 	}
 
