@@ -11,27 +11,28 @@ void coind_error(YAAMP_COIND *coind, const char *s)
 
 double coind_profitability(YAAMP_COIND *coind)
 {
-	if(!coind->difficulty) return 0;
-	if(coind->pool_ttf > g_stratum_max_ttf) return 0;
+	return 0;
+// 	if(!coind->difficulty) return 0;
+// 	if(coind->pool_ttf > g_stratum_max_ttf) return 0;
 
-//	double prof = 24*60*60*1000 / (coind->difficulty / 1000000 * 0x100000000) * reward * coind->price;
-//	double prof = 24*60*60*1000 / coind->difficulty / 4294.967296 * reward * coind->price;
+// //	double prof = 24*60*60*1000 / (coind->difficulty / 1000000 * 0x100000000) * reward * coind->price;
+// //	double prof = 24*60*60*1000 / coind->difficulty / 4294.967296 * reward * coind->price;
 
-	double prof = 20116.56761169 / coind->difficulty * coind->reward * coind->price;
-	// if(!strcmp(g_current_algo->name, "sha256")) prof *= 1000;
+// 	double prof = 20116.56761169 / coind->difficulty * coind->reward * coind->price;
+// 	// if(!strcmp(g_current_algo->name, "sha256")) prof *= 1000;
 
-	if(!coind->isaux && !coind->pos)
-	{
-		for(CLI li = g_list_coind.first; li; li = li->next)
-		{
-			YAAMP_COIND *aux = (YAAMP_COIND *)li->data;
-			if(!coind_can_mine(aux, true)) continue;
+// 	if(!coind->isaux && !coind->pos)
+// 	{
+// 		for(CLI li = g_list_coind.first; li; li = li->next)
+// 		{
+// 			YAAMP_COIND *aux = (YAAMP_COIND *)li->data;
+// 			if(!coind_can_mine(aux, true)) continue;
 
-			prof += coind_profitability(aux);
-		}
-	}
+// 			prof += coind_profitability(aux);
+// 		}
+// 	}
 
-	return prof;
+// 	return prof;
 }
 
 double coind_nethash(YAAMP_COIND *coind)
