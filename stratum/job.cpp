@@ -333,7 +333,7 @@ void job_update()
 	{
 		YAAMP_JOB *job = (YAAMP_JOB *)li->data;
 		if(!job_can_mine(job)) continue;
-
+debuglog("before job_broadcast\n");
 		job_broadcast(job);
 //		ready++;
 	}

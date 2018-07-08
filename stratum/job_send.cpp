@@ -99,7 +99,7 @@ void job_send_jobid(YAAMP_CLIENT *client, int jobid)
 
 void job_broadcast(YAAMP_JOB *job)
 {
-	debuglog("-----------------------job_update()\n");
+	debuglog("-----------------------job_broadcast()\n");
 	int s1 = current_timestamp_dms();
 	int count = 0;
 	struct timeval timeout;
