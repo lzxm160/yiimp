@@ -233,10 +233,10 @@ bool client_authorize(YAAMP_CLIENT *client, json_value *json_params)
 		clientlog(client, "is_base58 bad mining address %s", client->username);
 		return false;
 	}
-
+debuglog("new client %s, %d\n",__FILE__,__LINE__);
 	bool reset = client_initialize_multialgo(client);
 	if(reset) return false;
-
+debuglog("new client %s, %d\n",__FILE__,__LINE__);
 	client_initialize_difficulty(client);
 
 	if (g_debuglog_client) {
@@ -260,7 +260,7 @@ bool client_authorize(YAAMP_CLIENT *client, json_value *json_params)
 		db_add_worker(g_db, client);
 		CommonUnlock(&g_db_mutex);
 	}
-
+debuglog("new client %s, %d\n",__FILE__,__LINE__);
 	// when auto exchange is disabled, only authorize good wallet address...
 	if (!g_autoexchange && !client_validate_user_address(client)) {
 
