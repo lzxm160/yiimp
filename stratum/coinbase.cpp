@@ -98,6 +98,7 @@ void coinbase_create(YAAMP_COIND *coind, YAAMP_JOB_TEMPLATE *templ, json_value *
 	sprintf(script1, "%s%s%s08", eheight, templ->flags, etime);
 
 	char script2[32] = "7969696d7000"; // "yiimp\0" in hex ascii
+	debuglog("==========%s:%d,coinbasecreate\n",__FILE__,__LINE__);
 	if(coind->pos){
 		debuglog("==========%s:%d,pos\n",__FILE__,__LINE__);
 	}
