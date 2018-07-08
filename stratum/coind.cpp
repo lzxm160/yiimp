@@ -18,7 +18,7 @@ double coind_profitability(YAAMP_COIND *coind)
 //	double prof = 24*60*60*1000 / coind->difficulty / 4294.967296 * reward * coind->price;
 
 	double prof = 20116.56761169 / coind->difficulty * coind->reward * coind->price;
-	if(!strcmp(g_current_algo->name, "sha256")) prof *= 1000;
+	// if(!strcmp(g_current_algo->name, "sha256")) prof *= 1000;
 
 	if(!coind->isaux && !coind->pos)
 	{
