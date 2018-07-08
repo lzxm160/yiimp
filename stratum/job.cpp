@@ -326,15 +326,15 @@ void job_update()
 //	usleep(100*YAAMP_MS);
 
 //	int ready = 0;
-	debuglog("before g_list_job\n");
+	// debuglog("before g_list_job\n");
 
 	g_list_job.Enter();
 	for(CLI li = g_list_job.first; li; li = li->next)
 	{
-		debuglog("for \n");
+		// debuglog("for \n");
 		YAAMP_JOB *job = (YAAMP_JOB *)li->data;
 		if(!job_can_mine(job)) continue;
-debuglog("before job_broadcast\n");
+// debuglog("before job_broadcast\n");
 		job_broadcast(job);
 //		ready++;
 	}
