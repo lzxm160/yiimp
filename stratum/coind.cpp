@@ -68,12 +68,19 @@ void coind_sort()
 bool coind_can_mine(YAAMP_COIND *coind, bool isaux)
 {
 	if(coind->deleted) return false;
+	debuglog("%s:%d\n",__FILE__,__LINE__);
 	if(!coind->enable) return false;
+	debuglog("%s:%d\n",__FILE__,__LINE__);
 	if(!coind->auto_ready) return false;
+	debuglog("%s:%d\n",__FILE__,__LINE__);
 	if(!rpc_connected(&coind->rpc)) return false;
+	debuglog("%s:%d\n",__FILE__,__LINE__);
 	if(!coind->height) return false;
+	debuglog("%s:%d\n",__FILE__,__LINE__);
 	if(!coind->difficulty) return false;
+	debuglog("%s:%d\n",__FILE__,__LINE__);
 	if(coind->isaux != isaux) return false;
+	debuglog("%s:%d\n",__FILE__,__LINE__);
 //	if(isaux && !coind->aux.chainid) return false;
 
 	return true;
