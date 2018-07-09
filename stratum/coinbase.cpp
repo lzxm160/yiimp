@@ -55,6 +55,7 @@ void coinbase_aux(YAAMP_JOB_TEMPLATE *templ, char *aux_script)
 	vector<string> hashlist = coind_aux_hashlist(templ->auxs, templ->auxs_size);
 	while(hashlist.size() > 1)
 	{
+		debuglog("%s:%d,hashlist.size():%d\n", __FILE__,__LINE__,hashlist.size());
 		vector<string> l;
 		for(int i = 0; i < hashlist.size()/2; i++)
 		{
@@ -109,6 +110,7 @@ void coinbase_create(YAAMP_COIND *coind, YAAMP_JOB_TEMPLATE *templ, json_value *
 	{
 		debuglog("==========%s:%d,before coinbase_aux\n",__FILE__,__LINE__);
 		coinbase_aux(templ, script2);
+		debuglog("==========%s:%d,after coinbase_aux,%s\n",__FILE__,__LINE__,script2);
 	}
 	int script_len = strlen(script1)/2 + strlen(script2)/2 + 8;
 	sprintf(templ->coinb1, "%s%s01"
