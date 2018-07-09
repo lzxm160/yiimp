@@ -42,6 +42,7 @@ void build_submit_values(YAAMP_JOB_VALUES *submitvalues, YAAMP_JOB_TEMPLATE *tem
 	} else {
 		sprintf(submitvalues->header, "%s%s%s%s%s%s", templ->version, templ->prevhash_be, submitvalues->merkleroot_be,
 			ntime, templ->nbits, nonce);
+		
 		ser_string_be(submitvalues->header, submitvalues->header_be, 20);
 	}
 
@@ -50,9 +51,11 @@ void build_submit_values(YAAMP_JOB_VALUES *submitvalues, YAAMP_JOB_TEMPLATE *tem
 //	printf("%s\n", submitvalues->header_be);
 	int header_len = strlen(submitvalues->header)/2;
 	g_current_algo->hash_function((char *)submitvalues->header_bin, (char *)submitvalues->hash_bin, header_len);
-
+	debuglog("submitvalues->header:%02x\n",submitvalues->header_bin);
 	hexlify(submitvalues->hash_hex, submitvalues->hash_bin, 32);
 	string_be(submitvalues->hash_hex, submitvalues->hash_be);
+	debuglog("submitvalues->hash_hex:%02x\n",submitvalues->hash_hex);
+	debuglog("submitvalues->hash_be:%02x\n",submitvalues->hash_be);
 }
 
 /////////////////////////////////////////////

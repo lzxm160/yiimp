@@ -9,6 +9,7 @@
         "xlocale": "cpp",
         "xutility": "cpp",
         "xiosbase": "cpp",
-        "initializer_list": "cpp"
+        "initializer_list": "cpp",
+        "exception": "cpp"
     }
 }
