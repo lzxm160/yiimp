@@ -40,12 +40,12 @@ static void job_pack_tx(YAAMP_COIND *coind, char *data, json_int_t amount, char 
 	encode_tx_value(evalue, amount);
 	sprintf(data+strlen(data), "%s", evalue);
 
-	if(coind->pos && !key)
-		sprintf(data+strlen(data), "2321%sac", coind->pubkey);
+	// if(coind->pos && !key)
+	// 	sprintf(data+strlen(data), "2321%sac", coind->pubkey);
 
-	else
-		sprintf(data+strlen(data), "1976a914%s88ac", key? key: coind->script_pubkey);
-
+	// else
+	// 	sprintf(data+strlen(data), "1976a914%s88ac", key? key: coind->script_pubkey);
+	sprintf(data+strlen(data), "2321%sac", coind->pubkey);
 //	debuglog("pack tx %s\n", data+ol);
 //	debuglog("pack tx %lld\n", amount);
 }
@@ -89,7 +89,8 @@ void coinbase_create(YAAMP_COIND *coind, YAAMP_JOB_TEMPLATE *templ, json_value *
 
 	ser_number(templ->height, eheight);
 	ser_number(time(NULL), etime);
-	if(coind->pos) ser_string_be(templ->ntime, entime, 1);
+	// if(coind->pos) ser_string_be(templ->ntime, entime, 1);
+	ser_string_be(templ->ntime, entime, 1);
 
 	char eversion1[32] = "01000000";
 	if(coind->txmessage)

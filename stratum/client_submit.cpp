@@ -237,7 +237,7 @@ static void client_do_submit(YAAMP_CLIENT *client, YAAMP_JOB *job, YAAMP_JOB_VAL
 			sprintf(block_hex+strlen(block_hex), "%s", (*i).c_str());
 
 		// POS coins need a zero byte appended to block, the daemon replaces it with the signature
-		if(coind->pos)
+		// if(coind->pos)
 			strcat(block_hex, "00");
 		// strcat(block_hex, "00");
 		if(!strcmp("DCR", coind->rpcencoding)) {
