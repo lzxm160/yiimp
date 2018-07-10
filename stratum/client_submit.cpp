@@ -55,7 +55,7 @@ void build_submit_values(YAAMP_JOB_VALUES *submitvalues, YAAMP_JOB_TEMPLATE *tem
 	hexlify(submitvalues->hash_hex, submitvalues->hash_bin, 32);
 	string_be(submitvalues->hash_hex, submitvalues->hash_be);
 	debuglog("submitvalues->hash_hex:%s\n",submitvalues->hash_hex);
-	debuglog("submitvalues->hash_be:%02x\n",submitvalues->hash_be);
+	debuglog("submitvalues->hash_be:%s\n",submitvalues->hash_be);
 }
 
 /////////////////////////////////////////////
