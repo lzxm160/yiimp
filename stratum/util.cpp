@@ -461,7 +461,7 @@ void ser_number(int n, char *a)
 	if (n == -1 || (n >= 1 && n <= 16))
 	{
 		// push_back(n + (OP_1 - 1));
-		*a=n+50;
+		*a=n+0x51-1;
 		return;
 	}
 	/////////////////////////////
