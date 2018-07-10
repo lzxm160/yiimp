@@ -457,7 +457,13 @@ void ser_number(int n, char *a)
 	unsigned char s[32];
 	memset(s, 0, 32);
 	memset(a, 0, 32);
-
+	////////////////////////////////
+	if (n == -1 || (n >= 1 && n <= 16))
+	{
+		// push_back(n + (OP_1 - 1));
+		*a=n+50;
+	}
+	/////////////////////////////
 	s[0] = 1;
 	while(n > 127)
 	{
