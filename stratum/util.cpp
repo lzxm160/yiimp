@@ -462,6 +462,7 @@ void ser_number(int n, char *a)
 	{
 		// push_back(n + (OP_1 - 1));
 		*a=n+0x51-1;
+		
 		return;
 	}
 	/////////////////////////////
